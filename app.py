@@ -286,9 +286,12 @@ def generate_pdf(note):
     doc.build(story)
     return buf.getvalue()
 
+import os
 
 if __name__ == "__main__":
     print("=" * 52)
-    print("  NoteShare running →  http://localhost:5000")
+    print("  NoteShare starting on Render...")
     print("=" * 52)
-    app.run(debug=True, port=5000)
+
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
